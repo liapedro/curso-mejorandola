@@ -1,0 +1,163 @@
+.ir{direction:ltr;display:block;height:100%;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:100%}
+.hidden{display:none}
+.visuallyhidden{left:-9999px;position:absolute !important;top:-9999px}
+.invisible{visibility:hidden}
+.noselect{-o-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;user-select:none;-khtml-user-select:none}
+.clearfix,#nosotros .logos,#social_buttons,.detalles_curso,.lista_contenidos,.lista_contenidos .pasos_contenidos,.preguntas,.tab_container .formulario{zoom:1;}
+.clearfix:after,#nosotros .logos:after,#social_buttons:after,.detalles_curso:after,.lista_contenidos:after,.lista_contenidos .pasos_contenidos:after,.preguntas:after,.tab_container .formulario:after{clear:both;content:"\0020";display:block;height:0;visibility:hidden}
+.clear{display:block;clear:both;zoom:1}
+.nomargin{margin:0 !important}
+h2{color:#2b2b2b;font-size:30px;letter-spacing:10px;text-align:center;text-transform:uppercase}
+#confian img{width:100%}
+#contenidos{color:#2b2b2b;padding-top:20px;}
+#contenidos p{margin:0 auto;max-width:690px;font-size:12px;font-family:Arial;line-height:19px}
+#curso_head{font-size:0;position:relative;}
+#curso_head .portada{height:340px;width:1000px}
+#curso_head .tela{height:340px}
+#curso_head.small .portada{height:200px;}
+#curso_head.small .tela{height:200px}
+#docentes > div{display:inline-block;zoom:1;*display:inline;margin:0 auto;padding:25px 40px}
+#docentes h2{padding:20px 0 0 10px}
+#docentes .doc:nth-last-child(2){background:#0073e8}
+#docentes .doc:nth-last-child(1){background:#04a764}
+#nosotros{margin:20px auto;max-width:610px;padding-bottom:80px;}
+#nosotros h2{font-size:16px;letter-spacing:0;font-weight:bold}
+#nosotros p{color:#5a5c5e;font-family:Arial;font-size:12px;line-height:17px;margin-top:5px}
+#nosotros .logos{margin-top:20px}
+#nosotros .logo{width:50%;float:left;text-align:center}
+#porque h2{padding:55px 0 10px 0}
+#social_buttons{background:#26272b;background:rgba(38,39,43,0.75);display:inline-block;zoom:1;*display:inline;padding:5px;margin-left:20px;float:left;}
+#social_buttons div{display:inline-block;zoom:1;*display:inline;margin:-10px 10px}
+#social_buttons .btn_facebook{position:relative;top:-3px;width:45px}
+#skypedetectionswf{display:none}
+#wrapper{margin:0 auto;width:1000px;overflow:hidden;background:#fff}
+.corto{letter-spacing:-1px}
+.detalles_curso{font-size:16px;position:absolute;right:20px;text-align:right;top:30px;z-index:3;}
+.detalles_curso p{margin:5px 0;font-family:Arial;font-size:15px}
+.detalles_curso .descripcion{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;display:inline-block;zoom:1;*display:inline;margin-bottom:20px;max-width:824px;padding-left:167px;position:relative;}
+.detalles_curso .descripcion .texto{background:#26272b;background:rgba(38,39,43,0.75);-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;min-height:135px;padding:12px;padding-left:100px}
+.detalles_curso .descripcion .tecnologia{position:absolute;left:0;top:0;}
+.detalles_curso .descripcion .tecnologia .tec1{background:url("/images/triangulo-top.png") no-repeat left top;float:left;height:135px;position:relative;width:162px;}
+.detalles_curso .descripcion .tecnologia .tec1 img{position:absolute;top:20%;left:36%}
+.detalles_curso .descripcion .tecnologia .tec2{background:url("/images/triangulo-bottom.png") no-repeat left top;float:left;height:135px;margin-left:-75px;position:relative;width:162px;}
+.detalles_curso .descripcion .tecnologia .tec2 img{position:absolute;top:45%;left:35%}
+.detalles_curso .titulo{color:#fff;font-size:50px;font-weight:normal;letter-spacing:0;line-height:45px;padding-left:40%;position:relative;text-align:right}
+.detalles_curso .fecha{font-size:20px;margin:10px 0;text-transform:uppercase}
+.detalles_curso .skype{background:#26272b;background:rgba(38,39,43,0.75);display:inline-block;zoom:1;*display:inline;font-family:Arial;padding:0 10px 5px 10px;position:relative;float:right;clear:right;}
+.detalles_curso .skype img{margin:0 10px;position:relative;top:3px;vertical-align:bottom}
+.pago{margin-top:-70px;position:relative;text-align:center;z-index:5;}
+.pago .active a{background:#fff !important;border-bottom:5px solid #fff !important;color:#507c03}
+.pago .tabs{padding:0;}
+.pago .tabs li{list-style:none;display:inline-block;zoom:1;*display:inline;}
+.pago .tabs li a{background:#5e9513;border-bottom:5px solid #507c03;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;display:block;height:61px;padding-top:5px;text-transform:uppercase;width:316px}
+.pago .tabs li span{display:block;font-size:25px}
+.pago .mensaje{background:#ffc;color:#737373;font-family:Arial;font-size:15px;padding:5px 155px;text-align:justify;}
+.pago .mensaje p{margin:5px 0}
+.pago .mensaje a{color:#0073e8;text-decoration:underline}
+.pago .formulario{padding:5px 0}
+.pago .descuento{background:url("/images/patron2.jpg");}
+.pago .descuento .centro{background:#fff;display:inline-block;zoom:1;*display:inline;margin:0 auto;padding:5px 20px;}
+.pago .descuento .centro .deposito{border:2px solid #cdcdcd;color:#2b2b2b;margin:10px 10px;padding:5px 20px;min-width:215px;}
+.pago .descuento .centro .deposito button{background:url("/images/pattern.png");border:3px solid #ffa500;color:#fff;cursor:pointer;font-weight:bold;margin:0 5px;padding:5px 10px;text-transform:uppercase}
+.pago .descuento .centro .personas{background:#0073e8 url("/images/personas.jpg") no-repeat center 90%;padding:10px 20px 30px 0;text-align:right;min-width:110px;}
+.pago .descuento .centro .personas span{display:block;font-size:12px;font-weight:bold;margin-left:20px;text-align:center;text-transform:uppercase}
+.pago .descuento .centro .personas p{font-size:60px;display:inline-block;zoom:1;*display:inline;vertical-align:top}
+.pago .descuento .centro .personas button{background:#0285b9;background:rgba(0,0,0,0.50);border:none;color:#fff;cursor:pointer;display:block;height:25px;line-height:25px;margin:5px 0;width:25px}
+.pago .descuento .centro .precio{background:#0073e8;padding:10px;min-width:160px;}
+.pago .descuento .centro .precio p{font-size:60px;}
+.pago .descuento .centro .precio p span:nth-child(1){font-size:15px;font-weight:bold}
+.pago .descuento .centro .precio > span{display:block;text-transform:uppercase;font-weight:bold;font-size:12px}
+.pago .descuento .centro > div{display:inline-block;zoom:1;*display:inline;vertical-align:top}
+.pago .descuento .formulario{background:#fff;display:none;padding-top:20px}
+.doc{background:#0073e8;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;font-family:Arial !important;max-width:100% !important;width:100%;}
+.doc h3{font-size:20px;letter-spacing:5px;color:#fff}
+.doc a{text-decoration:underline}
+.doc p{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}
+.doc .datos{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;display:inline-block;zoom:1;*display:inline;max-width:650px;width:68%;}
+.doc .datos h4{font-size:15px;font-weight:normal;letter-spacing:3px;margin-bottom:20px;text-transform:uppercase;}
+.doc .datos h4 a{text-decoration:none}
+.doc .datos p{font-size:12px;line-height:19px}
+.doc .foto{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;display:inline-block;zoom:1;*display:inline;float:right;text-align:right;width:30%;}
+.doc .foto img{border:15px solid #fff}
+.notice{display:inline-block;zoom:1;*display:inline;padding:7px;color:#f00;border:1px solid #f00}
+.lista_contenidos{background:url("/images/pattern_lineas.png");-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;padding:0 80px 20px 80px;}
+.lista_contenidos h3{font-size:20px;font-weight:bold !important}
+.lista_contenidos .pasos_contenidos{background:#fff;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;float:left;padding:20px 0 40px 50px;padding-bottom:40px;width:50%;}
+.lista_contenidos .pasos_contenidos ol{color: #2B2B2B;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;float:left;font-family:Arial;font-size:13px;padding-left:70px;text-transform:uppercase;}
+.lista_contenidos .pasos_contenidos ol li{color: #2B2B2B;margin:5px 0}
+.lista_contenidos .pasos_contenidos ol li a{color: #2B2B2B;margin:5px 0}
+.lista_contenidos .pasos_contenidos ol:nth-child(2){margin-left:-50px}
+.lista_contenidos .full_contenidos{background:#fff;color: #2B2B2B;margin:5px 0;padding: 7px 10px}
+.lista_contenidos .full_contenidos a{color: #2B2B2B;}
+.lista_contenidos .full_contenidos h2,
+.lista_contenidos .full_contenidos h4{padding-bottom: 20px;}
+.pregunta{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;float:left;min-height:125px;padding:10px 15px;width:25%;}
+.pregunta p{font-family:Arial;font-size:14px;line-height:18px}
+.pregunta p:first-child{font-family:"open sans";font-size:25px;font-weight:bold;margin-bottom:15px;text-transform:uppercase}
+.pregunta:nth-child(1){background:#0073e8}
+.pregunta:nth-child(2){background:#0285b9;border-left:2px solid #fff}
+.pregunta:nth-child(3){background:#04978d;border-left:2px solid #fff}
+.pregunta:nth-child(4){background:#04a764;border-left:2px solid #fff}
+.tab_container{background:#fff;margin:0 auto;max-width:955px;padding:10px 0 0 0;}
+.tab_container .formulario button{background:#ffa500 url("/images/pattern.png");border:3px solid #ffa500;color:#fff;cursor:pointer;font-size:16px;margin-top:10px;padding:5px 15px;text-transform:uppercase}
+.tab_container .formulario input{background:url("/images/input.png") no-repeat left top;border:none;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;height:28px;outline:0;padding:0 0 0 15px;width:182px;}
+.tab_container .formulario input:focus{background:url("/images/input.png") left -36px}
+.tab_container .formulario label{color:#2b2b2b;font-size:12.5px;text-transform:uppercase}
+.tab_container .formulario .campo{float:left;text-align:center;}
+.tab_container .formulario .campo:nth-child(even){width:30%}
+.tab_container .formulario .campo:nth-child(odd){width:38%}
+.tab_container .formulario .campo .error{color:#f00;display:none}
+.tela{background:url("/images/pattern-puntos.png");height:650px;position:absolute;top:0;width:100%;z-index:2}
+.video{background:url("/images/pattern_lineas.png");}
+.video .cont{margin:0 auto;max-width:682px;position:relative;text-align:right;width:100%;z-index:2}
+.video .prop_video{border:10px solid rgba(0,0,0,0.30);-o-border-radius:10px;-ms-border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;padding-bottom:56.25%;position:relative;text-align:left;z-index:1;}
+.video .prop_video iframe,.video .prop_video object,.video .prop_video embed,.video .prop_video video{position:absolute;width:100%;height:100%}
+@media screen and (max-width:1000px){#social_buttons{margin-left:0}
+#wrapper{width:auto}
+.detalles_curso{right:0;}
+.detalles_curso .descripcion{max-width:100%;padding:0;}
+.detalles_curso .descripcion .tecnologia{position:inherit}
+.detalles_curso .titulo{padding-left:0}
+.pago{text-align:center;}
+.pago .tabs{font-size:0;}
+.pago .tabs li{font-size:16px;vertical-align:top;width:33%;}
+.pago .tabs li a{height:auto;min-height:61px;width:auto}
+.pago .tabs li span{font-size:15px}
+.pago .tabs li:nth-child(2){margin:0 1%;width:32%}
+.pago input{display:block;margin:0 auto}
+.lista_contenidos{padding:0 0 20px 0}
+.pregunta{width:50%;}
+.pregunta:nth-child(3){border:none}
+}@media screen and (max-width:800px){#docentes > div{padding:25px 10px;}
+#docentes > div img{border:5px solid #fff}
+#nosotros{padding:10px}
+#social_buttons{display:none}
+.detalles_curso .descripcion .tecnologia{height:135px;position:relative;text-align:center;}
+.detalles_curso .descripcion .tecnologia .tec1,.detalles_curso .descripcion .tecnologia .tec2{float:none;display:inline-block;zoom:1;*display:inline}
+.detalles_curso .descripcion .texto{margin-top:10px;min-height:10px;padding:10px;text-align:left}
+.detalles_curso .titulo{font-size:35px;text-align:center}
+.detalles_curso .fecha{text-align:center}
+.pago .mensaje{padding:5px 20px}
+}@media screen and (max-width:550px){h2{font-size:20px}
+#contenidos p{padding:20px}
+.doc h3{font-size:15px;margin-bottom:5px}
+.doc .datos h4{font-size:12px}
+.pago .descuento .centro{width:auto;padding:0;}
+.pago .descuento .centro .deposito{width:auto;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;margin:0}
+.pago .descuento .centro > div{display:block}
+.pago .tabs li{margin:0 !important;width:100% !important;}
+.pago .tabs li a{min-height:5px;padding:10px}
+.pago .tabs li span{display:inline-block;zoom:1;*display:inline}
+.tab_container .formulario input{background:#fff;border:1px solid #737373;padding:0;}
+.tab_container .formulario input:focus{background:#e9e9e9}
+.tab_container .formulario .campo{width:100% !important;font-size:0;}
+.tab_container .formulario .campo *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;display:inline-block;zoom:1;*display:inline;font-size:16px;margin-bottom:10px;width:45%}
+.tab_container .formulario .campo label{font-size:12px;padding-right:20px;text-align:right}
+.video .prop_video{border:5px solid rgba(0,0,0,0.50)}
+}@media screen and (max-width:480px){.pago{margin-top:30px}
+.lista_contenidos .pasos_contenidos{width:auto;float:none;}
+.lista_contenidos .pasos_contenidos ol{padding-left:30px;}
+.lista_contenidos .pasos_contenidos ol li{margin:5px 0}
+.lista_contenidos .pasos_contenidos ol:nth-child(2){margin-left:0}
+.pregunta{border:none !important;min-height:10px;width:100%}
+}
