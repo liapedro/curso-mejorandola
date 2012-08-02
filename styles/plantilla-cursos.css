@@ -8,6 +8,7 @@
 .clear{display:block;clear:both;zoom:1}
 .nomargin{margin:0 !important}
 h2{color:#2b2b2b;font-size:30px;letter-spacing:10px;text-align:center;text-transform:uppercase}
+pre{background: lightgray;padding: 5px;padding-top: 12px;}
 #confian img{width:100%}
 #contenidos{color:#2b2b2b;padding-top:20px;}
 #contenidos p{margin:0 auto;max-width:690px;font-size:12px;font-family:Arial;line-height:19px}
@@ -90,7 +91,9 @@ h2{color:#2b2b2b;font-size:30px;letter-spacing:10px;text-align:center;text-trans
 .lista_contenidos .full_contenidos{background:#fff;color: #2B2B2B;margin:5px 0;padding: 7px 10px}
 .lista_contenidos .full_contenidos a{color: #2B2B2B;}
 .lista_contenidos .full_contenidos h2,
-.lista_contenidos .full_contenidos h4{padding-bottom: 20px;}
+.lista_contenidos .full_contenidos h4,
+.lista_contenidos .full_contenidos code,
+.lista_contenidos .full_contenidos p{margin: 10px 0}
 .pregunta{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;float:left;min-height:125px;padding:10px 15px;width:25%;}
 .pregunta p{font-family:Arial;font-size:14px;line-height:18px}
 .pregunta p:first-child{font-family:"open sans";font-size:25px;font-weight:bold;margin-bottom:15px;text-transform:uppercase}

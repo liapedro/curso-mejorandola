@@ -37,49 +37,65 @@
             <div class="detalles_curso">
                 <div class="datos">
                     <h2 class="titulo">Curso de Javascript para aplicaciones web</h2>
-                    <h4 class="fecha">Perder el miedo al código</h4>
+                    <h4 class="fecha">Instalación de un servidor Node.js</h4>
                 </div>
             </div>
         </section> 
         <div class="lista_contenidos">
             <div class="full_contenidos">
-                <h2>Empecemos con la sintaxis de javascript</h2>
-                <p>La sintaxis de javascript es parecida a la de C, con un poco de contribuciones de java, scheme y smalltalk</p>
-                <h4>Variables</h4>
+                <h2>Windows</h2>
+                <p>Paso 1: Ir a <a href="http://nodejs.org/#download">http://nodejs.org/#download</a></p>
+                <p>Paso 2: Descargar el archivo para su sistema operativo</p>
+                <p>Paso 3: Instalar NodeJs</p>
+
+                <h2>Mac</h2>
+                <p>Paso 1: Ir a <a href="http://nodejs.org/#download">http://nodejs.org/#download</a></p>
+                <p>Paso 2: Descargar el archivo para su sistema operativo</p>
+                <p>Paso 3: Instalar NodeJs</p>
+
+                <p>Tambien pueden usar brew</p>
                 <pre>
-                    var foo = 'variable'
+brew install node
                 </pre>
-                </br>
 
-                <h4>Condicionales(if)</h4>
+                <h2>Ubuntu</h2>
+                <p>Paso 1: Abrir la terminal</p>
+                <p>Paso 2: Instalar dependencias</p>
                 <pre>
-                    if(foo === "variable"){
-                        console.log(true);
-                    }else{
-                        console.log(false);
-                    }
+sudo apt-get install build-essential git-core libssl-dev libssl0.9.8
                 </pre>
-                </br>
 
-                <h2></h2>
+                <p>Paso 3: Descargar Node</p>
+                <pre>
+git clone git://github.com/joyent/node
+                </pre>
 
+                <p>Paso 4: Pasar a NodeJs 0.8.4</p>
+                <pre>
+git checkout v0.8.4 
+                </pre>
 
-                <h2>Empecemos la clase con una pregunta sencilla</h2>
-                <h4>¿Que pasa cuando ejecutan $('body').data('foo', true)?</h4>
+                <p>Paso 5: Compilar e instalar NodeJs</p>
+                <pre>
+./configure
+make 
+sudo make install
+                </pre>
 
-                <h2></h2>
-                <p>
-                </p>
+                <h2>Probar node</h2>
+                <pre>
+node -v
+npm -v
+                </pre>
 
-                <h2>Contenidos adicionales</h2>
-                <p>
-                    <ul>
-                        <li><a href="http://vimeo.com/12529436#at=0">Paul Irish : 10 Things I Learned from the jQuery Source</a></li>
-                        <li><a href="http://www.youtube.com/watch?v=N8SS-rUEZPg">Google I/O 2011: Chrome Dev Tools Reloaded</a></li>
-                        <li><a href="http://api.jquery.com/jQuery.data/">Documentacion de jQuery data</a></li>
-                        <li><a href="http://www.nczonline.net/blog/2010/03/09/custom-events-in-javascript/">Custom events in JavaScript</a></li>
-                    </ul>
-                </p>         
+                <h2>Bajar contenidos del curso</h2>
+                <p>Ir a <a href="https://github.com/Siedrix/curso-mejorandola">https://github.com/Siedrix/curso-mejorandola</a></p>
+                <p>Navegar al folder desde su terminal</p>
+                <pre>
+node static_server.js
+                </pre>
+
+                <p>Ir a <a href="http://localhost:9000/">http://localhost:9000/</a> en su browser favorito, siempre y cuando sea Chrome, Safari o Firefox</p>
             </div>        
         </div>        
     </div>    

@@ -37,49 +37,70 @@
             <div class="detalles_curso">
                 <div class="datos">
                     <h2 class="titulo">Curso de Javascript para aplicaciones web</h2>
-                    <h4 class="fecha">Perder el miedo al código</h4>
+                    <h4 class="fecha">Instalación de un servidor Node.js</h4>
                 </div>
             </div>
         </section> 
         <div class="lista_contenidos">
             <div class="full_contenidos">
-                <h2>Empecemos con la sintaxis de javascript</h2>
-                <p>La sintaxis de javascript es parecida a la de C, con un poco de contribuciones de java, scheme y smalltalk</p>
-                <h4>Variables</h4>
+                <h2>Windows</h2>
+                <p>Paso 1: Ir a <a href="http://www.mongodb.org/downloads">http://www.mongodb.org/downloads</a></p>
+                <p>Paso 2: Descargar el archivo de mongo 2.0.6 para su sistema operativo</p>
+                <p>Paso 3: Descomprimirlo en C:/mongodb</p>
+                <p>Paso 4: Crear un folder llamado data en C:/ y crear un folder llamado db dentro de ese folder</p>
+                <p>Paso 5: Abrir aplicacion de linea de comando(tecla de windows, cmd y enter)</p>
+                <p>Paso 6: Teclear C:/mongodb/bin/mongodb.exe</p>
+
+                <p>Para probar que funciono abre otra aplicacion de linea de comando, teclea C:/mongodb/bin/mongodb.exe</p>
+
+                <h2>Mac</h2>
+                <p>Paso 1: Abrir una terminal</p>
+                <p>Paso 2: Usar brew para instalar mongodb</p>
                 <pre>
-                    var foo = 'variable'
+brew update
+brew install mongodb
                 </pre>
-                </br>
-
-                <h4>Condicionales(if)</h4>
+                <p>Paso 3: Inicar mongodb</p>
                 <pre>
-                    if(foo === "variable"){
-                        console.log(true);
-                    }else{
-                        console.log(false);
-                    }
+mongodb
                 </pre>
-                </br>
 
-                <h2></h2>
+                <p>Para probar que funciono abre otra terminal y corre "mongo"</p>                
 
+                <h2>Ubuntu</h2>
+                <p>Paso 1: Abrir la terminal</p>
+                <p>Paso 2: Agregar la llave de 10gen a apt</p>
+                <pre>
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+                </pre>
 
-                <h2>Empecemos la clase con una pregunta sencilla</h2>
-                <h4>¿Que pasa cuando ejecutan $('body').data('foo', true)?</h4>
+                <p>Paso 3: Agregar el source de 10gen a apt</p>
+                <p>Abrir /etc/apt/sources.list y agregar </p>
+                <pre>
+deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
+                </pre>
 
-                <h2></h2>
-                <p>
-                </p>
+                <p>Paso 4: Actualizar apt</p>
+                <pre>
+sudo apt-get update
+                </pre>
 
-                <h2>Contenidos adicionales</h2>
-                <p>
-                    <ul>
-                        <li><a href="http://vimeo.com/12529436#at=0">Paul Irish : 10 Things I Learned from the jQuery Source</a></li>
-                        <li><a href="http://www.youtube.com/watch?v=N8SS-rUEZPg">Google I/O 2011: Chrome Dev Tools Reloaded</a></li>
-                        <li><a href="http://api.jquery.com/jQuery.data/">Documentacion de jQuery data</a></li>
-                        <li><a href="http://www.nczonline.net/blog/2010/03/09/custom-events-in-javascript/">Custom events in JavaScript</a></li>
-                    </ul>
-                </p>         
+                <p>Paso 5: Instalar mongodb</p>
+                <pre>
+sudo apt-get install mongodb-10gen
+                </pre>
+
+                <p>Para probar que funciono</p>
+                <pre>
+mongo
+                </pre>
+
+                <h2>Creeemos nuestro primer documento</h2>
+                <pre>
+db.test.save( { a: 1 } )
+db.test.find()
+                </pre>
+                
             </div>        
         </div>        
     </div>    
