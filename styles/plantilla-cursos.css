@@ -12,8 +12,8 @@ pre{background: lightgray;padding: 5px;padding-top: 12px;}
 #confian img{width:100%}
 #contenidos{color:#2b2b2b;padding-top:20px;}
 #contenidos p{margin:0 auto;max-width:690px;font-size:12px;font-family:Arial;line-height:19px}
-#curso_head{font-size:0;position:relative;}
-#curso_head .portada{height:340px;width:1000px}
+#curso_head{font-size:0;position:relative; background: url('/images/javascript.jpg')}
+#curso_head .portada{height:340px;width:1000px; opacity: 0;}
 #curso_head .tela{height:340px}
 #curso_head.small .portada{height:200px;}
 #curso_head.small .tela{height:200px}

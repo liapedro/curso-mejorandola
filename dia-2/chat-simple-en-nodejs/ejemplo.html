@@ -1,0 +1,98 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="/styles/base.css" rel="stylesheet">
+    <link href="/styles/plantilla-cursos.css" rel="stylesheet">    
+    <script type="text/javascript" src="/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="/faye-browser.js"></script>
+    <script type="text/javascript">
+	// var client = new Faye.Client('http://localhost:8000/faye');
+
+	// client.subscribe('/messages', function(message) {
+	//   	console.log('Got a message: ', message.text);
+	// });
+
+	// client.publish('/messages', {
+	//   text: 'Hello world'
+	// });    
+
+	var Chat = function(element){
+		this.$element = $( element );
+		this.$user     = this.$element.find('#user');
+		this.$message  = this.$element.find('#message');
+		this.$submit   = this.$element.find('#submit');
+		this.$messages = this.$element.find('#messages');
+
+		this.connect();
+		this.bindEvents();
+	}
+
+	Chat.prototype.connect = function() {
+		console.log('connect', this);
+
+		this.client = new Faye.Client('http://localhost:8000/faye');
+
+		this.client
+	}
+
+	Chat.prototype.bindEvents = function() {
+		console.log('bindEvents');
+		var chat = this;
+
+		this.$submit.click(function(){
+			if( !chat.$user.val() || !chat.$message.val() ){
+				return;
+			}
+
+			chat.sendMessage({
+				user    : chat.$user.val(),
+				message : chat.$message.val()
+			});
+
+			chat.$message.val('').focus();
+		});
+
+		this.client.subscribe('/messages', function(message) {
+		  	$.tmpl( "message", message ).prependTo( chat.$messages );
+		});
+	}
+
+	Chat.prototype.sendMessage = function(message) {
+		this.client.publish('/messages', message);
+	};
+
+	$(document).ready(function(){
+		$.template( "message", $('#message-template').html() );
+
+		var chat = new Chat('#chat');
+
+		window.chat = chat;
+	});
+
+    </script>
+</head>
+<body>
+	<div id="chat">
+		<p>
+			<label>Nombre de usuario:</label><input id="user" type="text"/>
+		</p>
+		<p>
+			<label>Mensaje:</label><input id="message" type="text"/>
+		</p>
+		<p>
+			<button id="submit" type="button">Mandar Mensaje</button>
+		</p>
+		<ul id="messages"></ul>
+	</div>
+
+    <script id="message-template" type="text/jquery-template">
+        <li id="to-do-${id}" to-do-id="${id}" {{if completed}}class="completed"{{/if}}>
+            <div class="view">
+                <b>${user}</b>:<label>${message}</label>
+            </div>
+        </li>       
+    </script>
+
+</body>
+<html>
