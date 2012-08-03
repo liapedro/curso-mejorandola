@@ -1,10 +1,60 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script type="text/javascript" src="/jquery-1.7.2.js"></script>
-    <script type="text/javascript"></script>
+    <link href="/styles/base.css" rel="stylesheet">
+    <link href="/styles/plantilla-cursos.css" rel="stylesheet">    
+    <script type="text/javascript" src="/jquery-1.4.2.js"></script>
 </head>
 <body>
-    <h3>Que demonios es una function?</h3>
+    
+    <div id="wrapper">
+        <header>
+            <div class="mejor"> 
+              <h1><a href="http://mejorando.la" title="Mejorando.la"><img class="logo-chico" src="/images/logos/mejorandola.png" alt="Mejorando.la"><img class="logo-grande" src="/images/logos/mejorandola-grande.png" alt="Mejorando.la"></a>
+              </h1>
+              <a id="maestros" href="http://www.maestrosdelweb.com" title="Maestros del web"><img src="/images/logos/maestros.png" alt="Maestros del web"></a><a id="cristalab" href="http://www.cristalab.com" title="Cristalab"><img src="/images/logos/cristalab.png" alt="Cristalab"></a>
+          </div>
+     
+            <nav class="menu">
+                <ul>
+                  <li><a href="http://mejorando.la/cursos" title="Cursos">Cursos</a></li>
+                  <li><a href="http://mejorando.la/cursos/exalumnos" title="Ex alumnos">Ex alumnos</a></li>
+                  <li><a href="http://mejorando.la/conferencias" title="Conferencias">conferencias</a></li>
+                  <li><a href="http://mejorando.la/videos" title="Videos">Videos</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="curso_head" class="small">
+            <img class="portada" src="/images/javascript.jpg">
+            <div class="tela"></div>
+            <div class="detalles_curso">
+                <div class="datos">
+                    <h2 class="titulo">Curso de Javascript para aplicaciones web</h2>
+                    <h4 class="fecha">Que demonios es una <i>function</i>?</h4>
+                </div>
+            </div>
+        </section> 
+        <div class="lista_contenidos">
+            <div class="full_contenidos">
+            	<h2>Para que sirven las <i>function</i>?</h2>
+            	<p>La reutilización del código, la descomposición, modularidad, la expresividad y rutinas de alto orden</p>
+
+            	<h2>Pero en javascript las <i>function</i> hacen mucho mas...</h2>
+              <ul>
+                  <li><a href="/dia-1/que-demonios-es-una-function/objetos.html">Son objetos</a></li>
+                  <li><a href="/dia-1/que-demonios-es-una-function/constructores.html">Son contructores</a></li>
+                  <li><a href="/dia-1/que-demonios-es-una-function/contextos.html">Tienen su propio contexto(Closure)</a></li>
+                  <li>Tienen <a href="/dia-1/que-demonios-es-una-function/inherencia.html">inherencia</a> e <a href="/dia-1/que-demonios-es-una-function/inherencia.html">inherencia en base a contextos</a></li>
+              </ul>
+
+              <h2>Por lo cual podemos crear</h2>
+              <ul>
+                  <li><a href="/dia-1/que-demonios-es-una-function/curry.html">Curry</a></li>
+                  <li><a href="/dia-1/que-demonios-es-una-function/iife.html">I.I.F.E</a></li>
+                  <li><a href="/dia-1/que-demonios-es-una-function/method-stealing.html">Method Stealing</a></li>
+              </ul>
+            </div>        
+        </div>        
+    </div>    
 </body>
 </html>

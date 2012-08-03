@@ -23,8 +23,8 @@ font-style: normal;
 .nomargin{margin:0 !important}
 *{margin:0}
 ::selection{text-shadow:0 0 20px #017ecd,1px 1px 1px #808080}
-a{color:#fff;text-decoration:none}
-a:hover{text-decoration:underline}
+a{color:#fff;}
+a:hover{}
 p{margin:0}
 h1{position:absolute;z-index:10}
 h2,h5{font-weight:normal}
