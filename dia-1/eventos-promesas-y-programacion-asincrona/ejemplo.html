@@ -27,6 +27,17 @@
             });
         };
 
+        self.entregarOrden = function(orden){
+            console.log('Entregando orden:',orden);
+
+            orden.status        = 'entregada';
+
+            self.trigger({
+                type  : 'orden entregada', 
+                orden : orden
+            });
+        };
+
         return self;
     }
 
@@ -62,17 +73,23 @@
         taquero.cocinarOrden(e.orden);
     });
 
+    taquero.bind('orden cocinada', function(e){
+        mesero.entregarOrden(e.orden);
+    });
+
     mesero.tomarOrden({
         tacos  : 2,
         tortas : 1,
-        lonche : 2
+        lonche : 2,
+        mesa : 5
     });
 
     setTimeout(function(){    
         mesero.tomarOrden({
             tortas    : 4,
             lonche    : 1,
-            refrescos : 4
+            refrescos : 4,
+            mesa : 3
         });
     }, 5000);
 })(window);    
