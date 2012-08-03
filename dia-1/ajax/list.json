@@ -1,0 +1,9 @@
+{
+    "title" : "Navegar el DOM",
+    "items" : [
+        "Encontrar elementos en dom con selectores de css",
+        "Encontrar a los padres de un nodo",
+        "Encontrar el ancestro mas cercano",
+        "Buscar elementos hijos del nodo"
+    ]     
+}

@@ -7,7 +7,7 @@
 			this.menu      = config.menu      || [];
 		}
 
-		Restaurant.prototype.comer = function(){
+		Restaurant.comer = function(){
 			return 'mmmm...';
 		}
 
@@ -35,7 +35,7 @@
 		});
 
 		console.log( ilDiabolo );
-		console.log( ilDiabolo.comer() );
+		//console.log( ilDiabolo.comer() );
 		console.log('menu', ilDiabolo.getMenu() );
 		console.log('pizzas', ilDiabolo.getPizzas() );
 
