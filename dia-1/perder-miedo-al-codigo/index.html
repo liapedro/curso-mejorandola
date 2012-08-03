@@ -47,7 +47,7 @@
                 <p>La sintaxis de javascript es parecida a la de C, con un poco de contribuciones de java, scheme y smalltalk</p>
                 <h4>Variables</h4>
                 <pre>
-                    var foo = 'variable'
+                    var foo = 'variable';
                 </pre>
                 </br>
 
@@ -62,9 +62,33 @@
                 </br>
 
                 <h2>Tipos de datos en javascript</h2>
-                <p></p>
+                <p>Boleano</p>
+                <pre>var Boleano = true || false;</pre>
 
+                <p>Numérico</p>
+                <pre>var Numerico = 4;</pre>
 
+                <p>Texto(string)</p>
+                <pre>var Texto = "(string)";</pre>
+
+                <p>Objetos</p>
+                <pre>
+var foo = {
+    "key"      : "data",
+    "otherKey" : "moreData"
+}
+                </pre>
+
+                <p>Funciones</p>
+                <pre>                
+var miFuncion = function(algunos, parametros){
+    algunos    = algunos || "algunos";
+    parametros = parametros || "parametros";
+    // hacemos unas cuantas cosas ..
+
+    console.log(algunos, parametros);
+}
+                </pre>
 
                 <h2>Empecemos la clase con una pregunta sencilla</h2>
                 <h4>¿Que pasa cuando ejecutan $('body').data('foo', true)?</h4>
@@ -75,11 +99,10 @@
                         <li><a href="http://vimeo.com/12529436#at=0">Paul Irish : 10 Things I Learned from the jQuery Source</a></li>
                         <li><a href="http://www.youtube.com/watch?v=N8SS-rUEZPg">Google I/O 2011: Chrome Dev Tools Reloaded</a></li>
                         <li><a href="http://api.jquery.com/jQuery.data/">Documentacion de jQuery data</a></li>
-                        <li><a href="http://www.nczonline.net/blog/2010/03/09/custom-events-in-javascript/">Custom events in JavaScript</a></li>
                     </ul>
-                </p>         
+                </p>
             </div>        
         </div>        
     </div>    
 </body>
-</html>
+</html>;

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="/styles/base.css" rel="stylesheet">
     <link href="/styles/plantilla-cursos.css" rel="stylesheet">    
-    <script type="text/javascript" src="/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="/jquery-1.7.2.js"></script>
 </head>
 <body>
     
@@ -36,7 +36,38 @@
         </section> 
         <div class="lista_contenidos">
             <div class="full_contenidos">
-            	
+                <h2>Eventos</h2>
+                <p>La programación orientada a eventos esta basada en el termino <i>Loose Coupling</i> y lo que implica es modelas aplicaciones con poco acoplamiento y, mas importante, basada en una manera de pensar del mundo real.</p>
+
+                <p>Consiste en decidir que acciones necesitas saber cuando ocurren y despues ejecutar algo cuando estas sucedan. <a href="/dia-1/eventos-promesas-y-programacion-asincrona/ejemplo.html">Ejemplo</a></p>
+
+                <h2>Promesas</h2>
+                <p>Las promesas son una capa de abstración arriba de los eventos que nos permiten controlar que se va a ejecutar cuando se termine una acción</p>
+
+                <pre>
+var promesa = $.Deferred();
+
+promesa.done(function(){
+    console.log('this is done');
+});
+
+setTimeout(function(){
+    promesa.resolve();
+}, 5000);
+                </pre>
+
+                <p>Además podemos agrupar varias promesas para realizar una acción una vez que estas esten terminadas</p>
+                <pre>
+var maqueta       = $.Deferred();
+var investigacion = $.Deferred();
+
+$.when(maqueta, investigacion).then(function(){
+    console.log('Entregar tarea');
+});
+
+// maqueta.resolve();
+// investigacion.resolve();
+                </pre>
             </div>        
         </div>        
     </div>    

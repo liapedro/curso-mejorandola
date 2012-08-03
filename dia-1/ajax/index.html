@@ -3,7 +3,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="/styles/base.css" rel="stylesheet">
     <link href="/styles/plantilla-cursos.css" rel="stylesheet">    
-    <script type="text/javascript" src="/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="/jquery.tmpl.js"></script>
 </head>
 <body>
     
@@ -36,7 +37,37 @@
         </section> 
         <div class="lista_contenidos">
             <div class="full_contenidos">
-            	
+                <h2>Un poco de historia</h2>
+
+                <p>En el 2000 Microsoft agrega el objeto XMLHttpRequest object al browser y para el 2004 Google lo usa en Gmail y es el punto en el que el mundo lo empieza a usar.</p>
+                
+            	<h2>¿Que ha cambiado?</h2>
+
+                <p>Bastante, a mejorado su seguridad, dejado de usar el xml, agregado sockets para substituir "ajax".</p>
+                <p>En jQuery 1.5 cambiaron el modulo de ajax para correr sobre promesas.</p>
+
+                <pre>
+var promesa = $.ajax('/dia-1/ajax/data.json');
+
+promesa.done(function(data){
+    console.log('informacion lista', data);
+});
+
+console.log('Procesar mas cosas mientras llega nuestra informacion');
+                </pre>
+
+                <h2>Un ejemplo un poco mas complicado</h2>
+                <pre>
+var template = $.ajax('/dia-1/ajax/template.json');
+var list     = $.ajax('/dia-1/ajax/list.json');
+$.when(template, list).then(function(template, data){
+    var templateData = template[0];
+    var listData     = data[0];
+    
+    $.template( "list", templateData.template );
+    $.tmpl( "list", listData ).appendTo('.full_contenidos'); 
+});
+                </pre>
             </div>        
         </div>        
     </div>    

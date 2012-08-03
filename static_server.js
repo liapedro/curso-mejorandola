@@ -2,7 +2,7 @@ var http = require("http"),
     url = require("url"),
     path = require("path"),
     fs = require("fs")
-    port = process.argv[2] || 8888;
+    port = process.argv[2] || 9000;
 
 http.createServer(function(request, response) {
 
@@ -28,9 +28,16 @@ http.createServer(function(request, response) {
         return;
       }
 
-      response.writeHead(200);
-      response.write( file.replace(/{:expireCache}/g,'?_='+Math.random()) , "binary");
-      response.end();
+      if( request.url.search('.json') >= 0 ){
+        response.writeHead(200, {"Content-Type": "application/json", "Cache-Control": "no-store"});
+        response.write( file , "binary");
+        response.end();
+      }else{
+        response.writeHead(200);
+        response.write( file.replace(/{:expireCache}/g,'?_='+Math.random()) , "binary");
+        response.end();
+      }
+
     });
   });
 }).listen(parseInt(port, 10));

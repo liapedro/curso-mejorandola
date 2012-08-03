@@ -3,10 +3,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="/styles/base.css" rel="stylesheet">
     <link href="/styles/plantilla-cursos.css" rel="stylesheet">    
-    <script type="text/javascript" src="/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="/jquery.tmpl.js"></script>
+    <script type="text/javascript">
+        window.listData = {
+            title : "Navegar el DOM",
+            items : [
+                "Encontrar elementos en dom con selectores de css",
+                "Encontrar a los padres de un nodo",
+                "Encontrar el ancestro mas cercano",
+                "Buscar elementos hijos del nodo"
+            ]     
+        };
+    </script>
 </head>
 <body>
-    
     <div id="wrapper">
         <header>
             <div class="mejor"> 
@@ -36,9 +47,67 @@
         </section> 
         <div class="lista_contenidos">
             <div class="full_contenidos">
-            	
+                <h2>Hay 3 temas importantes cuando se trata de Dom y para esto jQuery es el Rey</h2>
+
+                <ul id="dom">
+                    <li>
+                        <h4>Navegar el DOM</h4>
+                        <ul>
+                            <li>Encontrar elementos en dom con selectores de css</li>
+                            <li>Encontrar a los padres de un nodo</li>
+                            <li>Encontrar el ancestro mas cercano</li>
+                            <li>Buscar elementos hijos del nodo</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Modificar el DOM</h4>
+                        <ul>
+                            <li>Agregar hijos al nodo</li>
+                            <li>Agregar hermanos al nodo(Antes o Despues)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Leer y cambiar attributos de un nodo</h4>
+                        <ul>
+                            <li>Leer clases de un nodo</li>
+                            <li>Agregar y remover clases a un nodo</li>
+                            <li>Leer el Id de un nodo</li>
+                            <li>Cambiar el Id de un nodo</li>
+                            <li>Leer attributos</li>
+                            <li>Agregar o remover atributos de un nodo</li>
+                            <li>Cambiar el contenido de un nodo</li>
+                        </ul>
+                    </li>                    
+                </ul>
+
+                <h2>Templates para agregar muchos nodos de golpe</h2>
+                <p>Los templates de jquery funcionan en 3 sencillos pasos</p>
+                <ol>
+                    <li>
+                        Conseguir el template
+                        <pre> var listTemplate = $('#list-template').html(); </pre>
+                    </li>
+                    <li>
+                        Compilar el template
+                        <pre> $.template( "list", listTemplate ); </pre>
+                    </li>
+                    <li>Agregar el  informacion al template
+                        <pre> $.tmpl( "list", window.listData ); </pre>
+                    </li>
+                </ol>
             </div>        
         </div>        
     </div>    
+
+    <script id="list-template" type="text/jquery-template">
+        <li>
+            <h4>${title}</h4>
+            <ul>
+            {{each(i, item) items}}
+                <li>${item}</li>
+            {{/each}}
+            </ul>
+        </li>
+    </script>
 </body>
 </html>
