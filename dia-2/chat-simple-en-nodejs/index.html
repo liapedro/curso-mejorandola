@@ -35,8 +35,54 @@
         </section> 
         <div class="lista_contenidos">
             <div class="full_contenidos">
-                <h2>Windows</h2>                
-                <h4></h4>
+                <h2>En Node</h2>                
+                <p>Primero necesitamos instalar las librerias necesarias</p>
+                <pre>npm install .</pre>
+                <p>Requerimos nuestras librerias</p>
+                <pre>
+var http = require('http'),
+    faye = require('faye');
+                </pre>
+                <p>Iniciamos nuestro servidor de PubSub</p>
+                <pre>
+bayeux.attach(server);
+server.listen(8000);
+                </pre>
+
+                <h2>En el browser</h2>
+                <p>Necesitamos conectarnos al servidor, decir que canales queremos escuchar y que mensajes publicar</p>
+                <pre>
+var client = new Faye.Client('http://localhost:8000/faye');
+
+client.subscribe('/messages', function(message) {
+    console.log('Got a message: ', message.text);
+});
+
+client.publish('/messages', {
+    text: 'Hello world'
+});                      
+                </pre>
+
+                <h2>Faye permite tener extensiones</h2>
+                <p>Para agregar comportamiento a nuestro server pub sub tenemos extensiones que se corren antes de cualquier mensaje que salga del server o cuando cualquier mensaje llegue el server</p>
+                <pre>
+var logger = {
+  incoming: function(message, callback) {
+    if(message.channel === '/messages'){
+      console.log('got message', message.data);
+    }
+
+    callback(message);
+  }
+};
+
+bayeux.addExtension(logger);
+                </pre>
+
+                <h2>Veamos el ejemplo</h2>
+                <p>Vayan al folder /dia-2/chat-simple-en-nodejs</p>
+                <pre>node app.js</pre>
+                <p>Vatan a <a href="http://localhost:9000/dia-2/chat-simple-en-nodejs/ejemplo.html">http://localhost:9000/dia-2/chat-simple-en-nodejs/ejemplo.html</a></p>
             </div>        
         </div>        
     </div>    

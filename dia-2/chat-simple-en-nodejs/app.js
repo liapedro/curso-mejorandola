@@ -23,6 +23,7 @@ var logger = {
 
 bayeux.addExtension(logger);
 
-
 bayeux.attach(server);
 server.listen(8000);
+
+console.log('Server tunning at '+ 8000);
