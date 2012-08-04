@@ -18,7 +18,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/to-do/:name',function (req, res){
-	res.render('index',{ pageName : req.params.name})
+	res.render('index',{ pageName : req.params.name});
 });
 
 app.listen(3000);

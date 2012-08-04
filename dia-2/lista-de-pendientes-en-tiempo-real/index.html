@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="/styles/base.css" rel="stylesheet">
+    <link href="/styles/plantilla-cursos.css" rel="stylesheet">    
+</head>
+<body>
+    
+    <div id="wrapper">
+        <header>
+            <div class="mejor"> 
+              <h1><a href="http://mejorando.la" title="Mejorando.la"><img class="logo-chico" src="/images/logos/mejorandola.png" alt="Mejorando.la"><img class="logo-grande" src="/images/logos/mejorandola-grande.png" alt="Mejorando.la"></a>
+              </h1>
+              <a id="maestros" href="http://www.maestrosdelweb.com" title="Maestros del web"><img src="/images/logos/maestros.png" alt="Maestros del web"></a><a id="cristalab" href="http://www.cristalab.com" title="Cristalab"><img src="/images/logos/cristalab.png" alt="Cristalab"></a>
+          </div>
+     
+            <nav class="menu">
+                <ul>
+                  <li><a href="http://mejorando.la/cursos" title="Cursos">Cursos</a></li>
+                  <li><a href="http://mejorando.la/cursos/exalumnos" title="Ex alumnos">Ex alumnos</a></li>
+                  <li><a href="http://mejorando.la/conferencias" title="Conferencias">conferencias</a></li>
+                  <li><a href="http://mejorando.la/videos" title="Videos">Videos</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="curso_head" class="small">
+            <img class="portada" src="/images/javascript.jpg">
+            <div class="tela"></div>
+            <div class="detalles_curso">
+                <div class="datos">
+                    <h2 class="titulo">Curso de Javascript para aplicaciones web</h2>
+                    <h4 class="fecha">Lista de pendientes en tiempo real</h4>
+                </div>
+            </div>
+        </section> 
+        <div class="lista_contenidos">
+            <div class="full_contenidos">
+                <h2>Primer paso</h2>
+                <p>Instalemos los paquetes necesarios para este proyecto</p>
+                <pre>
+npm install .
+npm install nodemon -g                    
+                </pre>
+                <h2>Paso 2</h2>
+                <p>Necesitamos juntar express con mongoose</p>
+                <p>Tomemos el server del ejercicio de express y agregemos los schemas y el modelo de mongoose</p>
+                <p>Despues en el llamada al router '/to-do/:name' entregemos la lista de mongoose<p>
+                <h2>Paso 3</h2>
+                <p>Agregemos el estilo y la logica para renderearlo como lista de tareas</p>
+                <p>Esto implica traer todo el ejercicio de ayer a la vista y archivos estaticos de este proyecto</p>
+                <h2>Paso 4</h2>
+                <p>Notificar al server cuando se modifica la lista y que informacion a cambiado de ella</p>
+                <h2>Paso 5</h2>
+                <p>Paso subscribirnos al server para escuchar cuando alguien mas cambia la lista</p>
+                <h2>Paso 6</h2>
+                <p>Persistir los cambios en el server[Hint:Usar una extension de faye]</p>
+            </div>        
+        </div>        
+    </div>    
+</body>
+</html>

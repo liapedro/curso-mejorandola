@@ -42,7 +42,7 @@ List.find({title : toDoListTitle}, function (err, docs){
 	if(docs.length){
 		var list = docs[0];
 	}else{
-		// Si la lista no existe, la borramos
+		// Si la lista no existe, la creamos
 		var list   = new List;
 		list.title = toDoListTitle;
 	}
