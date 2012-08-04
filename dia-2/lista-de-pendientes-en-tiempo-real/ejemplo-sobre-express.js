@@ -6,6 +6,40 @@ var express  = require('express'),
 	faye     = require('faye'),
 	_        = require('underscore');
 
+//Faye server
+var fayeServer = new faye.NodeAdapter({mount: '/faye'});
+//log messages
+var logger = {
+	incoming: function(message, callback) {
+		if( message.channel.search('/to-do/') === 0){
+			//console.log('got message', message);
+
+			List.find({title : message.data.listTitle}, function (err, docs){
+				if(err){
+					callback({error : "invalid list"});					
+				}
+
+				var list = docs[0];
+
+				if(message.data.action === "update"){
+					list.toDos.forEach(function(toDo){
+						if(toDo._id+'' === message.data.toDo.id){
+							toDo.title = message.data.toDo.title;
+							toDo.completed = message.data.toDo.completed;
+						}
+					});					
+				}
+
+				console.log('list to be saved', list)
+				list.save();
+			})
+		}
+
+		callback(message);
+	}
+};
+fayeServer.addExtension(logger);
+
 // Mongoose parts
 mongoose.connect('mongodb://localhost/to_dos');
 
@@ -87,8 +121,10 @@ app.get('/to-do/:name',function (req, res){
 	});
 });
 
+fayeServer.listen(3001);
 app.listen(3000);
 console.log("Express server running at\n  => http://localhost:3000/\nCTRL + C to shutdown");
+console.log("Faye    server running at\n  => http://localhost:3001/\nCTRL + C to shutdown");
 
 
 

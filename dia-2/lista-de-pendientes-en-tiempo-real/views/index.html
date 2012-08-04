@@ -5,6 +5,7 @@
     <script type="text/javascript" src="/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="/jquery.tmpl.js"></script>
     <script type="text/javascript" src="/EventEmitter.js"></script>
+    <script type="text/javascript" src="/faye-browser.js"></script>
     <script type="text/javascript">
     var Utils = {
         // https://gist.github.com/1308368
@@ -236,8 +237,13 @@
             toDoElements : list.toDos
         });
 
+        window.client = new Faye.Client('http://localhost:3001/faye');
+
         toDoList.bind("updateToDoList",function(e) {
             console.log("Lista Cambiada...",e);
+            delete e.target;
+            e.listTitle = "${listTitle}";
+            client.publish('/to-do/${listTitle}', e);
         });
         
         window.toDoList = toDoList;
