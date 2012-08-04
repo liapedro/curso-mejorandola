@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="base.css">
     <script type="text/javascript" src="/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="/EventEmitter.js"></script>
     <script type="text/javascript">
     var Utils = {
         // https://gist.github.com/1308368
@@ -19,7 +20,7 @@
     };
 
     var ToDoList = function (config) {
-        var self   = {};
+        var self   = EventEmitter();
             config = config || {};
 
         self.STORAGE_NAME = 'to-dos';
@@ -37,7 +38,21 @@
             if(self.$toDoList){
                 $.tmpl( "toDo", toDo ).appendTo( self.$toDos );
             }
+            self.trigger({
+                type: "updateToDoList"
+            });
         };
+
+        self.getToDo = function(id){
+            var t;
+            self.toDos.forEach(function(todo){ 
+                if(todo.id === id){ 
+                    t=todo; 
+                } 
+            });
+            return t;
+        };
+
 
         self.updateToDo = function(id, data){
             self.toDos.forEach(function(todo){ 
@@ -49,6 +64,9 @@
             });
 
             Utils.store( self.STORAGE_NAME, self.toDos );
+            self.trigger({
+                type: "updateToDoList"
+            });
         };
 
         self.completeToDo = function(id){
@@ -68,7 +86,12 @@
         self.destroyToDo = function(id){
             self.toDos = self.toDos.filter(function(todo){ 
                 return todo.id !== id
+            })
+
+            self.trigger({
+                type: "updateToDoList"
             });
+            ;
 
             Utils.store( self.STORAGE_NAME, self.toDos );
 
@@ -78,8 +101,15 @@
         };
 
         self.empty = function(){
+            self.toDos.forEach(function(todo){
+                self.$toDoList.find('#to-do-'+todo.id).remove();
+            }); 
+
             self.toDos = [];
             Utils.store( self.STORAGE_NAME, [] );
+            self.trigger({
+                type: "updateToDoList"
+            });
         };
 
         self.keyUpHandler = function(e){
@@ -133,12 +163,39 @@
                 }
             });
         }
+        self.enterEdit=function(e){
+            var toDoElement = $(e.target).closest('li'),
+                toDoId = toDoElement.attr('to-do-id'),
+                txt = self.getToDo(toDoId).title;
+            toDoElement.addClass('editing');
+
+            toDoElement.find('input.edit').val(txt);
+        }
+
+        self.exitEdit = function(e){
+            var $input = $(e.target),
+                val = $.trim( $input.val() );
+          
+
+            if ( e.which !== self.ENTER_KEY || !val ) {
+                return;
+            } 
+
+            var toDoElement = $(e.target).closest('li'),
+                toDoId = toDoElement.attr('to-do-id');
+
+                toDoElement.removeClass('editing');
+                toDoElement.find('label').text(val);
+                self.updateToDo(toDoId, {title:val});
+        }
 
         self.bindEvents = function(){
             self.$newToDo.on( 'keyup', self.keyUpHandler );
             self.$toDoList.delegate('.destroy', 'click', self.deleteHandler );
             self.$toDoList.delegate('.toggle' , 'click', self.toggleHandler );
-            self.$toggleAll.on('click', self.toggleAllHandler)
+            self.$toggleAll.on('click', self.toggleAllHandler);
+            self.$toDoList.delegate('.view','dblclick',self.enterEdit);
+            self.$toDoList.delegate('input.edit','keyup',self.exitEdit)
         };
 
         self.render = function(){
@@ -158,7 +215,6 @@
 
         if(self.renderTo){
             self.render();
-
             self.bindEvents();
         }
 
@@ -174,6 +230,10 @@
             renderTo : '#todoapp'
         });
 
+        toDoList.bind("updateToDoList",function() {
+            console.log("Lista Cambiada...",toDoList.toDos);
+        });
+        
         window.toDoList = toDoList;
     });
 

@@ -47,6 +47,16 @@
 			Utils.store( self.STORAGE_NAME, self.toDos );
 		};
 
+		self.getToDo = function(id){
+			var t;
+			self.toDos.forEach(function(todo){ 
+				if(todo.id === id){ 
+					t=todo; 
+				} 
+			});
+			return t;
+		};
+
 		self.destroyToDo = function(id){
 			self.toDos = self.toDos.filter(function(todo){ 
 				return todo.id !== id
