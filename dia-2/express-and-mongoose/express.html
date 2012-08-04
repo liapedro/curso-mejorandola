@@ -1,8 +1,77 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="/styles/base.css" rel="stylesheet">
+    <link href="/styles/plantilla-cursos.css" rel="stylesheet">    
+</head>
+<body>
+    
+    <div id="wrapper">
+        <header>
+            <div class="mejor"> 
+              <h1><a href="http://mejorando.la" title="Mejorando.la"><img class="logo-chico" src="/images/logos/mejorandola.png" alt="Mejorando.la"><img class="logo-grande" src="/images/logos/mejorandola-grande.png" alt="Mejorando.la"></a>
+              </h1>
+              <a id="maestros" href="http://www.maestrosdelweb.com" title="Maestros del web"><img src="/images/logos/maestros.png" alt="Maestros del web"></a><a id="cristalab" href="http://www.cristalab.com" title="Cristalab"><img src="/images/logos/cristalab.png" alt="Cristalab"></a>
+          </div>
+     
+            <nav class="menu">
+                <ul>
+                  <li><a href="http://mejorando.la/cursos" title="Cursos">Cursos</a></li>
+                  <li><a href="http://mejorando.la/cursos/exalumnos" title="Ex alumnos">Ex alumnos</a></li>
+                  <li><a href="http://mejorando.la/conferencias" title="Conferencias">conferencias</a></li>
+                  <li><a href="http://mejorando.la/videos" title="Videos">Videos</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="curso_head" class="small">
+            <img class="portada" src="/images/javascript.jpg">
+            <div class="tela"></div>
+            <div class="detalles_curso">
+                <div class="datos">
+                    <h2 class="titulo">Curso de Javascript para aplicaciones web</h2>
+                    <h4 class="fecha">Express</h4>
+                </div>
+            </div>
+        </section> 
+        <div class="lista_contenidos">
+            <div class="full_contenidos">
+            	<h2>Express</h2>
+            	<p>Express es un DSL para crear aplicaciones web de manera rapida</p>
+            	<p><del>Sinatra</del>Express is a DSL for quickly creating web applications in <del>Ruby</del>Node with minimal effort.</p>
+            	<p>Para crear una aplicacion con Express de necesita crear un objeto aplicacion</p>
+            	<pre>
 var express = require('express');
-var app = express();
 
+var app = express();
+            	</pre>
+            	<p>Agregar los plugins necesarios</p>
+				<pre>
+app.use(express.static('./public'));
+
+//View Engine
+app.engine('html', cons.jqtpl);
+// set .html as the default extension 
+app.set('view engine', 'html');
+app.set('views', './views');					
+				</pre>
+
+				<p>Agregar las rutas con las que trabajaremos</p>
+				<pre>
 app.get('/', function(req, res){
-  	res.send('hello world');
+  	res.render('index',{ pageName : 'Home' });
 });
 
-app.listen(3000);
+app.get('/to-do/:name',function (req, res){
+	res.render('index',{ pageName : req.params.name})
+});					
+				</pre>
+
+				<p>Decirle a la aplicacion que escuche en algun puerto</p>
+				<pre>
+app.listen(3000);					
+				</pre>
+            </div>        
+        </div>        
+    </div>    
+</body>
+</html>

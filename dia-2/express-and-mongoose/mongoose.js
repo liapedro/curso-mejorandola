@@ -1,3 +1,9 @@
+// node mongoose.js "lista de super" create tocino
+// node mongoose.js "lista de super" create sandias
+// node mongoose.js "lista de super" display
+// node mongoose.js "lista de super" remove sandias
+// node mongoose.js "lista de super" display
+
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema, 
 	ObjectId = Schema.ObjectId;
@@ -18,6 +24,56 @@ var ToDoList = new Schema({
 
 var List = mongoose.model('ToDoList', ToDoList);
 
+List.prototype.getToDosTitles = function() {
+	return this.toDos.map(function(toDo){
+		return toDo.title;
+	});
+};
+
+// Tomos los parametros de ejecucion;
+var toDoListTitle = process.argv[2],
+	action        = process.argv[3],
+	toDoName      = process.argv[4];
+
+// Encontramos la lista correta
+List.find({title : toDoListTitle}, function (err, docs){
+	//console.log(err, docs);
+
+	if(docs.length){
+		var list = docs[0];
+	}else{
+		// Si la lista no existe, la borramos
+		var list   = new List;
+		list.title = toDoListTitle;
+	}
+
+	if(action === "create"){
+		list.toDos.push({ title: toDoName, completed : false });		
+
+		console.log(toDoName + ' a sido agregada a la lista de tareas '+ toDoListTitle);
+	}else if(action === "display"){
+		console.log('Las tareas en '+ toDoListTitle +' son:', list.getToDosTitles() );
+	}else if(action === "remove"){
+		list.toDos = list.toDos.filter(function(toDo){
+			return toDoName !== toDo.title
+		});
+
+		console.log(toDoName + ' a sido removida a la lista de tareas '+ toDoListTitle);
+	}
+
+	list.save(function(err){
+		if(err){
+			console.log('Err', err);
+		}else{
+			console.log('Yei!!! accion completada')
+		}
+
+		delete mongoose
+	});
+});
+
+
+/*
 List.prototype.getToDosTitles = function() {
 	return this.toDos.map(function(toDo){
 		return toDo.title;

@@ -1,0 +1,78 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="/styles/base.css" rel="stylesheet">
+    <link href="/styles/plantilla-cursos.css" rel="stylesheet">    
+</head>
+<body>
+    
+    <div id="wrapper">
+        <header>
+            <div class="mejor"> 
+              <h1><a href="http://mejorando.la" title="Mejorando.la"><img class="logo-chico" src="/images/logos/mejorandola.png" alt="Mejorando.la"><img class="logo-grande" src="/images/logos/mejorandola-grande.png" alt="Mejorando.la"></a>
+              </h1>
+              <a id="maestros" href="http://www.maestrosdelweb.com" title="Maestros del web"><img src="/images/logos/maestros.png" alt="Maestros del web"></a><a id="cristalab" href="http://www.cristalab.com" title="Cristalab"><img src="/images/logos/cristalab.png" alt="Cristalab"></a>
+          </div>
+     
+            <nav class="menu">
+                <ul>
+                  <li><a href="http://mejorando.la/cursos" title="Cursos">Cursos</a></li>
+                  <li><a href="http://mejorando.la/cursos/exalumnos" title="Ex alumnos">Ex alumnos</a></li>
+                  <li><a href="http://mejorando.la/conferencias" title="Conferencias">conferencias</a></li>
+                  <li><a href="http://mejorando.la/videos" title="Videos">Videos</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="curso_head" class="small">
+            <img class="portada" src="/images/javascript.jpg">
+            <div class="tela"></div>
+            <div class="detalles_curso">
+                <div class="datos">
+                    <h2 class="titulo">Curso de Javascript para aplicaciones web</h2>
+                </div>
+            </div>
+        </section> 
+        <div class="lista_contenidos">
+            <div class="full_contenidos">
+            	<h2>Mongoose</h2>
+              <p>Mongoose es un ORM entre node y mongodb</p>
+              <p>Mongodb es una base de dato schemaless, pero Mongoose agregara schemas</p>
+              <p>Paso 1 crear nuestros Schemas</p>
+              <pre>
+var ToDo = new Schema({
+    id      : ObjectId,
+    title     : String,
+    completed : Boolean,
+});
+
+var ToDoList = new Schema({
+    id      : ObjectId,
+    title     : String,
+    toDos     : [ToDo]  
+});                
+              </pre>
+
+              <p>Crear nuestros modelos</p>
+              <pre>
+var List = mongoose.model('ToDoList', ToDoList);
+
+List.prototype.getToDosTitles = function() {
+  return this.toDos.map(function(toDo){
+    return toDo.title;
+  });
+};                
+              </pre>
+              <p>Podemos hacer busquedas con nuestros modelos o crear nuevas instancias</p>
+              <pre>
+List.find({title : "my title"}, function (err, lists){
+    // Hacer algo con nuestras listas.
+});
+
+var list   = new List;                
+list.save();
+              </pre>
+            </div>        
+        </div>        
+    </div>    
+</body>
+</html>
