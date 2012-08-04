@@ -1,13 +1,28 @@
-var http = require('http'),
-    faye = require('faye');
+var express = require('express'),
+	cons    = require('consolidate'),
+    faye    = require('faye');    
 
-var bayeux = new faye.NodeAdapter({mount: '/faye', timeout: 45});
+var server = express();
+var fayeServer = new faye.NodeAdapter({mount: '/faye'});
 
-// Handle non-Bayeux requests
-var server = http.createServer(function(request, response) {
-	response.writeHead(200, {'Content-Type': 'text/plain'});
-	response.write('Hello, non-Bayeux request');
-	response.end();
+//Static files
+server.use(express.static('./public'));
+
+//View Engine
+server.engine('html', cons.jqtpl);
+server.set('view engine', 'html');
+server.set('views', './views');
+
+server.get('/', function(req, res){
+	res.send('home');
+});
+
+server.get('/chat/:channel', function(req, res){
+	//res.send(req.params.channel);
+	res.render('chat',{
+		channel : req.params.channel,
+		chatTemplate : '<div class="view"><b>${user}</b>:<label>${message}</label></div>'
+	});
 });
 
 //log messages
@@ -21,9 +36,10 @@ var logger = {
 	}
 };
 
-bayeux.addExtension(logger);
+fayeServer.addExtension(logger);
 
-bayeux.attach(server);
+fayeServer.listen(8001);
 server.listen(8000);
+
 
 console.log('Server tunning at '+ 8000);

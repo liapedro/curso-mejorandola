@@ -4,6 +4,9 @@
 // node mongoose.js "lista de super" remove sandias
 // node mongoose.js "lista de super" display
 
+// node mongoose.js	"lista de super" empty
+// node mongoose.js	"lista de super" update tocino tocinos
+
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema, 
 	ObjectId = Schema.ObjectId;
@@ -33,7 +36,8 @@ List.prototype.getToDosTitles = function() {
 // Tomos los parametros de ejecucion;
 var toDoListTitle = process.argv[2],
 	action        = process.argv[3],
-	toDoName      = process.argv[4];
+	toDoName      = process.argv[4],
+	newtoDoName   = process.argv[5];
 
 // Encontramos la lista correta
 List.find({title : toDoListTitle}, function (err, docs){
@@ -52,14 +56,32 @@ List.find({title : toDoListTitle}, function (err, docs){
 
 		console.log(toDoName + ' a sido agregada a la lista de tareas '+ toDoListTitle);
 	}else if(action === "display"){
-		console.log('Las tareas en '+ toDoListTitle +' son:', list.getToDosTitles() );
+		console.log('Las tareas en '+ toDoListTitle +' son:', list
+		 );
 	}else if(action === "remove"){
 		list.toDos = list.toDos.filter(function(toDo){
 			return toDoName !== toDo.title
 		});
 
 		console.log(toDoName + ' a sido removida a la lista de tareas '+ toDoListTitle);
+	}else if(action === "empty"){
+		console.log('vaciando la lista '+ toDoListTitle + ' pero la lista todavia existe');
+
+		list.toDos = [];
+	}else if (action === "update"){
+		list.toDos.forEach(function(toDo){
+			if(toDo.title === toDoName){
+				toDo.title = newtoDoName;
+			}
+		});
 	}
+
+
+
+
+
+
+
 
 	list.save(function(err){
 		if(err){
