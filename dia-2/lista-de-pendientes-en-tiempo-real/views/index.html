@@ -33,13 +33,14 @@
             toDo.id = toDo.id || Utils.uuid();
 
             self.toDos.push(toDo);
-            Utils.store( self.STORAGE_NAME, self.toDos );
-
             if(self.$toDoList){
                 $.tmpl( "toDo", toDo ).appendTo( self.$toDos );
             }
+
             self.trigger({
-                type: "updateToDoList"
+                type   : "updateToDoList",
+                toDo   : toDo,
+                action : "create"
             });
         };
 
@@ -55,17 +56,21 @@
 
 
         self.updateToDo = function(id, data){
+        	var toDoItem;
             self.toDos.forEach(function(todo){ 
                 if(todo.id === id){ 
                     for(var key in data){
                         todo[key] = data[key];
                     }
+
+                    toDoItem = todo
                 } 
             });
 
-            Utils.store( self.STORAGE_NAME, self.toDos );
             self.trigger({
-                type: "updateToDoList"
+                type   : "updateToDoList",
+                toDo   : toDoItem,
+                action : "update"
             });
         };
 
@@ -84,16 +89,16 @@
         }
 
         self.destroyToDo = function(id){
+            self.trigger({
+                type   : "updateToDoList",
+                toDo   : self.getToDo(id),
+                action : "remove"
+            });
+
             self.toDos = self.toDos.filter(function(todo){ 
                 return todo.id !== id
             })
 
-            self.trigger({
-                type: "updateToDoList"
-            });
-            ;
-
-            Utils.store( self.STORAGE_NAME, self.toDos );
 
             if(self.$toDoList){
                 self.$toDoList.find("#to-do-"+id).remove();
@@ -106,9 +111,8 @@
             }); 
 
             self.toDos = [];
-            Utils.store( self.STORAGE_NAME, [] );
             self.trigger({
-                type: "updateToDoList"
+                type: "emptyToDoList"
             });
         };
 
@@ -232,8 +236,8 @@
             toDoElements : list.toDos
         });
 
-        toDoList.bind("updateToDoList",function() {
-            console.log("Lista Cambiada...",toDoList.toDos);
+        toDoList.bind("updateToDoList",function(e) {
+            console.log("Lista Cambiada...",e);
         });
         
         window.toDoList = toDoList;
