@@ -62,7 +62,9 @@ app.get('/to-do/:name',function (req, res){
 		if(docs.length){
 			var list = docs[0];
 			res.render('index',{ 
-				list     : JSON.stringify( list.toJson() )
+				listTitle : list.title,
+				list      : JSON.stringify( list.toJson() ),
+				toDoTemplate : '<li id="to-do-${id}" to-do-id="${id}" {{if completed}}class="completed"{{/if}}><div class="view"><input class="toggle" type="checkbox" {{if completed}}checked="true"{{/if}}><label>${title}</label><button class="destroy"></button></div><input class="edit" value=""></li>'
 			});
 		}else{
 			// Si la lista no existe, la creamos
@@ -74,7 +76,9 @@ app.get('/to-do/:name',function (req, res){
 					res.send('Something went wrong!!!')
 				}else{
 					res.render('index',{ 
-						list     : JSON.stringify( list.toJson() )
+						listTitle : list.title,
+						list      : JSON.stringify( list.toJson() ),
+						toDoTemplate : '<li id="to-do-${id}" to-do-id="${id}" {{if completed}}class="completed"{{/if}}><div class="view"><input class="toggle" type="checkbox" {{if completed}}checked="true"{{/if}}><label>${title}</label><button class="destroy"></button></div><input class="edit" value=""></li>'
 					});		
 				}
 

@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="base.css">
+    <script type="text/javascript" src="/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="/faye-browser.js"></script>
+    <script type="text/javascript">
+
+	var Chat = function(element){
+		this.$element = $( element );
+		this.$user     = this.$element.find('#user');
+		this.$message  = this.$element.find('#message');
+		this.$submit   = this.$element.find('#submit');
+		this.$messages = this.$element.find('#messages');
+
+		this.connect();
+		this.bindEvents();
+	}
+
+	Chat.prototype.connect = function() {
+		console.log('connect', this);
+
+		this.client = new Faye.Client('http://10.7.8.223:8001/faye');
+
+		this.client
+	}
+
+	Chat.prototype.bindEvents = function() {
+		console.log('bindEvents');
+		var chat = this;
+
+		this.$submit.click(function(){
+			if( !chat.$user.val() || !chat.$message.val() ){
+				return;
+			}
+
+			chat.sendMessage({
+				user    : chat.$user.val(),
+				message : chat.$message.val()
+			});
+
+			chat.$message.val('').focus();
+		});
+
+		this.client.subscribe('/${channel}', function(message) {
+		  	$.tmpl( "message", message ).prependTo( chat.$messages );
+		});
+	}
+
+	Chat.prototype.sendMessage = function(message) {
+		this.client.publish('/${channel}', message);
+	};
+
+	$(document).ready(function(){
+		$.template( "message", $('#message-template').html() );
+
+		var chat = new Chat('#chat');
+
+		window.chat = chat;
+	});
+
+    </script>
+</head>
+<body>
+	<div id="chat">
+		<p><label>Nombre de usuario:</label></p>
+		<p>
+			<input id="user" type="text"/>
+		</p>
+		<p>
+			<label>Mensaje:</label><input id="message" type="text"/>
+		</p>
+		<p>
+			<button id="submit" type="button">Mandar Mensaje</button>
+		</p>
+		<div id="messages"></div>
+	</div>
+
+    <script id="message-template" type="text/jquery-template">
+		{{html chatTemplate}}
+            
+    </script>
+
+</body>
+<html>
