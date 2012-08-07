@@ -12,7 +12,7 @@ var fayeServer = new faye.NodeAdapter({mount: '/faye'});
 var logger = {
 	incoming: function(message, callback) {
 		if( message.channel.search('/to-do/') === 0){
-			//console.log('got message', message);
+			console.log('got message', message.data);
 
 			List.find({title : message.data.listTitle}, function (err, docs){
 				if(err){
@@ -21,7 +21,19 @@ var logger = {
 
 				var list = docs[0];
 
-				if(message.data.action === "update"){
+				if(message.data.action === "create"){
+					list.toDos.push({title: message.data.toDo.title, completed : message.data.toDo.completed });
+
+					var todoId;
+					list.toDos.forEach(function (todo) {
+						if(todo.title === message.data.toDo.title){
+						console.log(todo.title, message.data.toDo.title);
+							todoId = todo._id; 
+						}
+					})
+
+					message.data.toDo.id = todoId;
+				}else if(message.data.action === "update"){
 					list.toDos.forEach(function(toDo){
 						if(toDo._id+'' === message.data.toDo.id){
 							toDo.title = message.data.toDo.title;
@@ -32,10 +44,12 @@ var logger = {
 
 				console.log('list to be saved', list)
 				list.save();
+				callback(message);	
 			})
+		}else{
+			callback(message);
 		}
 
-		callback(message);
 	}
 };
 fayeServer.addExtension(logger);

@@ -30,19 +30,22 @@
         self.renderTo = config.renderTo;
         self.toDos    = config.toDoElements || [];
 
-        self.createToDo = function(toDo){
-            toDo.id = toDo.id || Utils.uuid();
+        self.createToDo = function(toDo, trigger){
 
-            self.toDos.push(toDo);
-            if(self.$toDoList){
-                $.tmpl( "toDo", toDo ).appendTo( self.$toDos );
+        	if(toDo.id){
+	            if(self.$toDoList){
+	                $.tmpl( "toDo", toDo ).appendTo( self.$toDos );
+	            }
+        	}
+
+            if(trigger !== false){
+	            self.trigger({
+	                type   : "updateToDoList",
+	                toDo   : toDo,
+	                action : "create"
+	            });
             }
 
-            self.trigger({
-                type   : "updateToDoList",
-                toDo   : toDo,
-                action : "create"
-            });
         };
 
         self.getToDo = function(id){
@@ -128,7 +131,6 @@
             console.log('keyUpHandler', e);
 
             toDoList.createToDo({
-                id        : Utils.uuid(),
                 title     : val,
                 completed : false
             });
@@ -244,6 +246,12 @@
             delete e.target;
             e.listTitle = "${listTitle}";
             client.publish('/to-do/${listTitle}', e);
+        });
+
+        client.subscribe('/to-do/${listTitle}',function(e){
+        	console.log('Recibi un mensaje del server', e);
+
+        	toDoList.createToDo(e.toDo, false);
         });
         
         window.toDoList = toDoList;
